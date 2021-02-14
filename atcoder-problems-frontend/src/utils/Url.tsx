@@ -16,4 +16,4 @@ export const formatUserUrl = (userId: string): string =>
   `https://atcoder.jp/users/${userId}`;
 
 export const GITHUB_LOGIN_LINK =
-  "https://github.com/login/oauth/authorize?client_id=162a5276634fc8b970f7";
+  "https://github.com/login/oauth/authorize?client_id=Iv1.fd7634382ac96994";

@@ -93,7 +93,7 @@ pub(crate) async fn get_token<A: Authentication + Clone>(
     conn.register_user(&internal_user_id).await?;
 
     let cookie = Cookie::build("token", token).path("/").finish();
-    let redirect_url = "https://kenkoooo.com/atcoder/#/login/user";
+    let redirect_url = "http://localhost:3000/atcoder/#/login/user";
     let mut response = Response::builder(StatusCode::Found)
         .header(LOCATION, redirect_url)
         .build();

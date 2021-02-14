@@ -4,7 +4,7 @@ use std::fs::File;
 use std::io::prelude::*;
 
 const SQL_FILE: &str = "../../config/database-definition.sql";
-pub const SQL_URL: &str = "postgresql://kenkoooo:pass@localhost/test";
+pub const SQL_URL: &str = "postgresql://localhost/yuta";
 
 #[cfg(test)]
 #[allow(dead_code)]
