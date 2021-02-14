@@ -198,4 +198,3 @@ async fn test_update_rated_point_sum() {
         .await
         .is_none());
 }
-

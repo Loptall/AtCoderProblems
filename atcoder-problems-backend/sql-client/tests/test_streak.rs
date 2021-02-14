@@ -41,4 +41,3 @@ async fn test_update_streak_ranking() {
     assert_eq!(v.len(), 1);
     assert_eq!(v[0].streak, 2);
 }
-

@@ -13,6 +13,7 @@ pub mod simple_client;
 pub mod streak;
 pub mod submission_client;
 
+pub use sqlx::pool::PoolOptions;
 pub use sqlx::postgres::{PgPool, PgRow};
 pub use sqlx::{query, Row};
 
@@ -21,10 +22,10 @@ const UNRATED_STATE: &str = "-";
 const MAX_INSERT_ROWS: usize = 10_000;
 
 pub async fn initialize_pool<S: AsRef<str>>(database_url: S) -> Result<PgPool> {
-    let pool = PgPool::builder()
+    let pool = PoolOptions::new()
         .max_lifetime(Some(Duration::from_secs(60 * 5)))
-        .max_size(15)
-        .build(database_url.as_ref())
+        .max_connections(15)
+        .connect(database_url.as_ref())
         .await?;
     Ok(pool)
 }
