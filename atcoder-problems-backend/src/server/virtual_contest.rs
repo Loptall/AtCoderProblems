@@ -1,5 +1,6 @@
+use crate::error::ToAnyhowError;
+use crate::server::utils::RequestUnpack;
 use crate::server::{AppData, Authentication, CommonResponse};
-use crate::{error::ToAnyhowError, server::utils::RequestUnpack};
 
 use serde::{Deserialize, Serialize};
 use sql_client::internal::virtual_contest_manager::{
