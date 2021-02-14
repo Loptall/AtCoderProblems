@@ -1,5 +1,5 @@
-use crate::server::utils::RequestUnpack;
 use crate::server::{AppData, Authentication, CommonResponse};
+use crate::{error::ToAnyhowError, server::utils::RequestUnpack};
 
 use serde::{Deserialize, Serialize};
 use sql_client::internal::virtual_contest_manager::{
@@ -126,7 +126,7 @@ where
     }
 
     let conn = request.state().pg_pool.clone();
-    let contest_id = request.param::<String>("contest_id")?;
+    let contest_id = request.param("contest_id").map_anyhow()?;
 
     let info = conn.get_single_contest_info(&contest_id).await?;
     let participants = conn.get_single_contest_participants(&contest_id).await?;
