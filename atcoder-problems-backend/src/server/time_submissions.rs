@@ -1,8 +1,8 @@
+use crate::error::ToAnyhowError;
 use crate::server::{AppData, CommonResponse};
 use anyhow::Result;
 use sql_client::submission_client::{SubmissionClient, SubmissionRequest};
 use tide::{Request, Response};
-use crate::error::ToAnyhowError;
 
 pub(crate) async fn get_time_submissions<A>(request: Request<AppData<A>>) -> Result<Response> {
     let from = request.param("from").map_anyhow()?;
